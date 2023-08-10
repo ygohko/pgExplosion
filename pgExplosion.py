@@ -165,7 +165,7 @@ class Pge:
 				if event.type == KEYDOWN or event.type == QUIT:
 					sys.exit(0)
 
-			print "Processing frame %f" % num_frame
+			print("Processing frame %f" % num_frame)
 
 			glClear(GL_COLOR_BUFFER_BIT)
 			glPushMatrix()
@@ -196,7 +196,7 @@ class Pge:
 				if event.type == KEYDOWN or event.type == QUIT:
 					sys.exit(0)
 
-			print "Processing frame %f" % num_frame
+			print("Processing frame %f" % num_frame)
 
 			glClear(GL_COLOR_BUFFER_BIT)
 			glPushMatrix()
