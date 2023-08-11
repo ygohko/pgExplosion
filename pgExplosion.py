@@ -135,7 +135,7 @@ class Pge:
 	def SaveBmp(self,filename,width,height):
 		raw = glReadPixels(0,0,width,height,GL_RGB,GL_UNSIGNED_BYTE)
 		file = open(filename,"wb")
-		file.write("BM")
+		file.write(b"BM")
 		file.write(struct.pack("<l",14 + 40 + width * height * 3))
 		file.write(struct.pack("<l",0))
 		file.write(struct.pack("<l",54))
@@ -150,12 +150,12 @@ class Pge:
 		file.write(struct.pack("<l",0))
 		file.write(struct.pack("<l",0))
 		file.write(struct.pack("<l",0))
-		length = len(raw) / 3
+		length = len(raw) // 3
 		for i in range(length):
 			pos = i * 3
-			file.write(raw[pos + 2])
-			file.write(raw[pos + 1])
-			file.write(raw[pos])
+			file.write(bytes([raw[pos + 2]]))
+			file.write(bytes([raw[pos + 1]]))
+			file.write(bytes([raw[pos]]))
 
 	def Preview(self,width,height):
 		self.InitSdl(width,height)
